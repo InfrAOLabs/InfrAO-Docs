@@ -135,13 +135,13 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
   plugins: [
     require.resolve('docusaurus-lunr-search'), //searchbar
-    //   [ // Google Analytics
-    //     '@docusaurus/plugin-google-gtag',
-    //     {
-    //       trackingID: 'YOUR GOOGLE ANALYTICS TAG HERE',
-    //       anonymizeIP: true, // Non-Optional: anonymize IP addresses
-    //     },
-    //   ],
+      [ // Google Analytics
+        '@docusaurus/plugin-google-gtag',
+        {
+          trackingID: 'G-YHJ26RT3LQ',
+          anonymizeIP: true, // Non-Optional: anonymize IP addresses
+        },
+      ],
   ]
 };
 
