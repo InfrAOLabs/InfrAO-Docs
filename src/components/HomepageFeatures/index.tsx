@@ -1,56 +1,103 @@
-import type {ReactNode} from 'react';
+import React, { ReactNode } from 'react';
 import clsx from 'clsx';
-import Heading from '@theme/Heading';
+import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
-type FeatureItem = {
-  title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: ReactNode;
-};
-
-const FeatureList: FeatureItem[] = [
+const products = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'RandAO',
+    src: '/vid/randao.mp4',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        <p>RandAO processes random numbers at lightning speed, generating millions of values on-chain - more compute than any other protocol on AO.</p>
+        <ul>
+          <li>Processes up to 5 random numbers per second concurrently</li>
+          <li>Each random number takes just 5 seconds from start to finish</li>
+          <li>Scales per process with potential for much higher speeds</li>
+          <li>Performs hundreds of dry runs to ensure provider readiness</li>
+          <li>Uses 2 messages per provider plus 3 messages for organization</li>
+        </ul>
       </>
     ),
+    link: 'https://providers_randao.ar.io',
+    linkText: 'Explore RandAO',
+    image: null
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'RuneRealm',
+    src: '/vid/runerealm.mp4',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        <p>A cutting-edge monster catching MMORPG that's 100% on-chain:</p>
+        <ul>
+          <li>Every step and interaction is recorded on-chain</li>
+          <li>All AI logic is computed on-chain</li>
+          <li>Not possible on any other blockchain</li>
+          <li>Requires specialized infrastructure to function</li>
+        </ul>
       </>
     ),
+    link: 'https://runerealm_game.ar.io',
+    linkText: 'Enter RuneRealm',
+    image: null
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
+    title: 'Lunar',
+    src: null,
+    description: 'Enhanced reliability with optimized endpoints for better performance and stability.',
+    link: 'https://lunar_infrao.ar.io/',
+    linkText: 'Discover Lunar',
+    image: '/img/lunar.svg'
   },
+  {
+    title: 'AOLink',
+    src: null,
+    description: 'Reliable infrastructure with improved endpoints for seamless integration.',
+    link: 'https://aolink_infrao.ar.io',
+    linkText: 'Try AOLink',
+    image: '/img/aolink.svg'
+  }
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function ProductCard({ title, src, description, link, linkText, image }) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+    <div className={clsx('col col--6', styles.cardContainer)}>
+      <div className={styles.card}>
+        <h3 className={styles.cardTitle}>{title}</h3>
+        <div className={styles.mediaContainer}>
+          {src ? (
+            <div className={styles.videoWrapper}>
+              <video
+                className={styles.video}
+                controls
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src={src} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          ) : (
+            <div className={styles.imageWrapper}>
+              <img src={image} alt={title} className={styles.productImage} />
+            </div>
+          )}
+        </div>
+        <div className={styles.cardContent}>
+          <div className={styles.description}>{description}</div>
+          <div className={styles.linkContainer}>
+            <Link
+              className="button button--primary button--lg"
+              to={link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {linkText}
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -61,8 +108,8 @@ export default function HomepageFeatures(): ReactNode {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+          {products.map((product, idx) => (
+            <ProductCard key={idx} {...product} />
           ))}
         </div>
       </div>
