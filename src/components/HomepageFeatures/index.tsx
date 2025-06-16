@@ -44,7 +44,17 @@ const products = [
   {
     title: 'Lunar',
     src: null,
-    description: 'Enhanced reliability with optimized endpoints for better performance and stability.',
+    description: (
+      <>
+        <p>Optimized version of the public Lunar repository with enhanced performance:</p>
+        <ul>
+          <li>All Default Forward Research endpoints replaced with our own for faster loading</li>
+          <li>MU endpoints swapped where possible for better performance</li>
+          <li>Ongoing work to replace GraphQL endpoints for even faster response times</li>
+          <li>Direct fork of the base public repository with infrastructure improvements</li>
+        </ul>
+      </>
+    ),
     link: 'https://lunar_infrao.ar.io/',
     linkText: 'Discover Lunar',
     image: '/img/lunar.svg'
@@ -52,10 +62,20 @@ const products = [
   {
     title: 'AOLink',
     src: null,
-    description: 'Reliable infrastructure with improved endpoints for seamless integration.',
+    description: (
+      <>
+        <p>Optimized version of the public AOLink repository with enhanced performance:</p>
+        <ul>
+          <li>All Default Forward Research endpoints replaced with our own for faster loading</li>
+          <li>MU endpoints swapped where possible for better performance</li>
+          <li>Ongoing work to replace GraphQL endpoints for even faster response times</li>
+          <li>Direct fork of the base public repository with infrastructure improvements</li>
+        </ul>
+      </>
+    ),
     link: 'https://aolink_infrao.ar.io',
     linkText: 'Try AOLink',
-    image: '/img/aolink.svg'
+    image: '/img/Autonomous-Finance.png'
   }
 ];
 
